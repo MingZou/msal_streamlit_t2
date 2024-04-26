@@ -1,0 +1,28 @@
+#root {
+  padding: 0.5rem;
+}
+
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+
+  color-scheme: light dark;
+
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid;
+  padding: 0.6em 1.2em;
+  font-size: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  background-color: inherit;
+  cursor: pointer;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}

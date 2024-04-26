@@ -1,0 +1,56 @@
+name: Build and release
+on:
+  release:
+    types:
+      - published
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+jobs:
+  build-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check-out repository
+        uses: actions/checkout@v3
+        #-------------------------------
+        #   Setup Node.js and React
+        #-------------------------------
+      - name: Use Node.js v18.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install NPM dependencies
+        run: npm install --prefix msal_streamlit_authentication/frontend
+      - name: Build React project
+        run: npm run build --prefix msal_streamlit_authentication/frontend
+        #-------------------------------
+        #   Setup python
+        #-------------------------------
+      - name: Setup Python
+        id: setup-python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+        #-------------------------------
+        #   Install & configure poetry
+        #-------------------------------
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+        with:
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+          installer-parallel: true
+        #-------------------------------
+        #   Build & publish to PyPi
+        #-------------------------------
+      - name: Build package distribution
+        run: poetry build --no-interaction
+      - name: Publish a Python distribution to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          user: __token__
+          password: ${{ secrets.PYPI_API_TOKEN }}
+

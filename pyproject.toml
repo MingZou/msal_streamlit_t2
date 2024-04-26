@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "msal_streamlit_authentication_test"
+version = "1.0.9"
+description = "Streamlit Authentication library based on MSAL.JS"
+readme = "README.md"
+repository = "https://github.com/mstaal/msal_streamlit_authentication_test"
+authors = ["Michael Staal-Olsen"]
+packages=[
+    { include="msal_streamlit_authentication_test" }
+]
+include = ["msal_streamlit_authentication_test/frontend/dist/**/*"]
+exclude = [
+    "msal_streamlit_authentication_test/frontend/index.html",
+    "msal_streamlit_authentication_test/frontend/public",
+    "msal_streamlit_authentication_test/frontend/src",
+    "msal_streamlit_authentication_test/frontend/tsconfig.json",
+    "msal_streamlit_authentication_test/frontend/tsconfig.node.json",
+    "msal_streamlit_authentication_test/frontend/package.json",
+    "msal_streamlit_authentication_test/frontend/package-lock.json",
+    "msal_streamlit_authentication_test/frontend/vite.config.ts",
+]
+
+[tool.poetry.dependencies]
+python = ">=3.7"
+streamlit = "*"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "6.0.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
