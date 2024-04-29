@@ -3,9 +3,9 @@ from pathlib import Path
 import streamlit.components.v1 as components
 
 
-_USE_WEB_DEV_SERVER = os.getenv("USE_WEB_DEV_SERVER", True)
+_USE_WEB_DEV_SERVER = os.getenv("USE_WEB_DEV_SERVER", False)
 _WEB_DEV_SERVER_URL = os.getenv("WEB_DEV_SERVER_URL", "http://localhost:5173")
-COMPONENT_NAME = "msal_authentication_test"
+COMPONENT_NAME = "msal_authentication"
 
 if _USE_WEB_DEV_SERVER:
     _component_func = components.declare_component(name=COMPONENT_NAME, url=_WEB_DEV_SERVER_URL)
@@ -14,13 +14,13 @@ else:
     _component_func = components.declare_component(name=COMPONENT_NAME, path=build_dir)
 
 
-def msal_authentication_test(
+def msal_authentication(
         auth,
         cache,
         login_request=None,
         logout_request=None,
         login_button_text="Login_",
-        logout_button_text="Logout_Y",
+        logout_button_text="Logout_",
         class_name=None,
         html_id=None,
         key=None

@@ -1,23 +1,23 @@
 [tool.poetry]
-name = "msal_streamlit_authentication_test"
-version = "1.0.9"
+name = "msal_streamlit_t2"
+version = "1.1.1"
 description = "Streamlit Authentication library based on MSAL.JS"
 readme = "README.md"
-repository = "https://github.com/mstaal/msal_streamlit_authentication_test"
+repository = "https://github.com/mstaal/msal_streamlit_t2"
 authors = ["Michael Staal-Olsen"]
 packages=[
-    { include="msal_streamlit_authentication_test" }
+    { include="msal_streamlit_t2" }
 ]
-include = ["msal_streamlit_authentication_test/frontend/dist/**/*"]
+include = ["msal_streamlit_t2/frontend/dist/**/*"]
 exclude = [
-    "msal_streamlit_authentication_test/frontend/index.html",
-    "msal_streamlit_authentication_test/frontend/public",
-    "msal_streamlit_authentication_test/frontend/src",
-    "msal_streamlit_authentication_test/frontend/tsconfig.json",
-    "msal_streamlit_authentication_test/frontend/tsconfig.node.json",
-    "msal_streamlit_authentication_test/frontend/package.json",
-    "msal_streamlit_authentication_test/frontend/package-lock.json",
-    "msal_streamlit_authentication_test/frontend/vite.config.ts",
+    "msal_streamlit_t2/frontend/index.html",
+    "msal_streamlit_t2/frontend/public",
+    "msal_streamlit_t2/frontend/src",
+    "msal_streamlit_t2/frontend/tsconfig.json",
+    "msal_streamlit_t2/frontend/tsconfig.node.json",
+    "msal_streamlit_t2/frontend/package.json",
+    "msal_streamlit_t2/frontend/package-lock.json",
+    "msal_streamlit_t2/frontend/vite.config.ts",
 ]
 
 [tool.poetry.dependencies]
