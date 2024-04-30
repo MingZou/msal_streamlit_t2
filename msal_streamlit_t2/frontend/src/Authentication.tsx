@@ -37,13 +37,7 @@ const Authentication = ({ args }: ComponentProps) => {
                     setLoginToken(response)
                 }).catch(
                     function (error) {
-                        console.log("error")
-                        console.log(error)
-                        const currentAccount = instance.getAllAccounts()[0]
-                        // Extract login hint to use as logout hint
-                        //instance.logoutPopup()
                         setLoginToken(null)
-                        console.log(instance.getAllAccounts().length)
                     }
                 )
             } else {

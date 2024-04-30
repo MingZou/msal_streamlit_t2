@@ -14,7 +14,7 @@ parameters are entirely equivalent to the properties mentioned in the [Github do
 The `login_request` and `logout_request` parameters are covered [here](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/login-user.md).
 ```python
 import streamlit as st
-from msal_streamlit_authentication import msal_authentication
+from msal_streamlit_t2 import msal_authentication
 
 
 login_token = msal_authentication(
@@ -25,7 +25,7 @@ login_token = msal_authentication(
         "postLogoutRedirectUri": "/"
     }, # Corresponds to the 'auth' configuration for an MSAL Instance
     cache={
-        "cacheLocation": "sessionStorage",
+        "cacheLocation": "sessionStorage", # or 'localStorage' for sharing sessions between tabs 
         "storeAuthStateInCookie": False
     }, # Corresponds to the 'cache' configuration for an MSAL Instance
     login_request={
@@ -48,4 +48,5 @@ the `protocolMode` parameter in `auth` can be used to configure OIDC providers t
 
 ## Inspiration
 Inspired by [official Streamlit template](https://github.com/streamlit/component-template), [this tutorial](https://youtu.be/htXgwEXwmNs) ([Github](https://github.com/andfanilo/streamlit-plotly-component-tutorial)) and the official [Streamlit NPM component-lib](https://github.com/streamlit/streamlit/tree/develop/component-lib).
+Speciall thanks to [msal_streamlit_authentication](https://github.com/mstaal/msal_streamlit_authentication), which is a project hasn't been updated for a long time. This library is basically an updated version of that.
 
