@@ -23,7 +23,9 @@ def msal_authentication(
         logout_button_text="Logout_",
         class_name=None,
         html_id=None,
-        key=None
+        key=None,
+        hide_button=False,
+        hide_button_text="",
 ):
     authenticated_user_profile = _component_func(
         auth=auth,
@@ -35,6 +37,8 @@ def msal_authentication(
         class_name=class_name,
         html_id=html_id,
         default=None,
-        key=key
+        key=key,
+        hide_button=hide_button,
+        hide_button_text=hide_button_text,
     )
     return authenticated_user_profile

@@ -36,10 +36,35 @@ login_token = msal_authentication(
     logout_button_text="Logout", # Optional, defaults to "Logout"
     class_name="css_button_class_selector", # Optional, defaults to None. Corresponds to HTML class.
     html_id="html_id_for_button", # Optional, defaults to None. Corresponds to HTML id.
-    key=1 # Optional if only a single instance is needed
+    key="your_streamlit_key" # Optional if only a single instance is needed
+    hide_button=hide_button, # Optional, sometimes you can hide the button in some pages
+    hide_button_text="loading...", # Optional, display some text when button is hidden
 )
 st.write("Recevied login token:", login_token)
+
 ```
+or wrap it in a function and reuse it in other pages:
+```
+import streamlit as st
+from msal_streamlit_t2 import msal_authentication
+
+
+def app_msal(hide_button=True):
+    return msal_authentication(
+        auth={
+            ..........
+
+
+##page1.py:
+
+app_msal()
+
+##page2.py
+
+app_msal(False)
+
+```
+
 A minimal sample project using the library can be found [here](https://github.com/mstaal/streamlit_msal_sample). Note that it is Dockerized.
 
 The component currently expects for the user to go through a popup based login flow.
